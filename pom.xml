@@ -10,6 +10,8 @@
 
     <modules>
         <module>springTest_one</module>
+        <module>dubbo-api</module>
+        <module>dubbo-provider</module>
     </modules>
 
     <packaging>pom</packaging><!-- 这里添加，注意不是jar或war -->

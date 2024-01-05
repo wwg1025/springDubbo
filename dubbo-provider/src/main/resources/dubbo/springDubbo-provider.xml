@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 定义了提供方应用信息，用于计算依赖关系。在dubbo-admin会显示该名字，方便识别 -->
+    <dubbo:application name="springDubbo-provider" owner="dubbo" organization="dubbox"/>
+
+    <!--使用zookeeper注册中心暴露服务，注意要先开启zookeeper服务-->
+    <dubbo:registry protocol="zookeeper" address="114.55.52.92:2181,114.55.52.92:2182,114.55.52.92:2183"/>
+
+    <!--用dubbo协议在20880端口暴露服务-->
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <!--声明需要暴露的服务接口-->
+    <dubbo:service interface="com.wen.study.dubbo.service.impl.DemoServiceImpl" ref="demoService" protocol="dubbo"/>
+    <dubbo:service interface="com.wen.study.dubbo.service.impl.UserServiceImpl" ref="userService" protocol="dubbo"/>
+
+    <!--具体实现接口的bean-->
+    <bean id="demoService" class="com.wen.study.dubbo.service.impl.DemoServiceImpl"/>
+    <bean id="userService" class="com.wen.study.dubbo.service.impl.UserServiceImpl"/>
+
+</beans>
