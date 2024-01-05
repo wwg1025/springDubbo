@@ -1,0 +1,6 @@
+[WARN] [2024-01-03 10:14:59][com.alibaba.druid.pool.DruidDataSource]removeAbandoned is true, not use in productiion.
+[INFO] [2024-01-03 10:14:59][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+[INFO] [2024-01-03 10:15:01][com.wen.study.test.TestWeb]{"id":1,"userName":"张三","userPassword":"123456"}
+[INFO] [2024-01-03 10:15:01][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@7d9d1a19: startup date [Wed Jan 03 10:14:58 CST 2024]; root of context hierarchy
+[INFO] [2024-01-03 10:15:01][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} closing ...
+[INFO] [2024-01-03 10:15:01][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} closed

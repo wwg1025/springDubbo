@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wen.study.dao.TestUserMapper">
+
+    <resultMap id="BaseResultMap" type="com.wen.study.entity.TestUser">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="user_password" property="userPassword" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		ID,
+		user_name,
+		user_password
+	</sql>
+
+    <select id="getUserById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/> FROM test_user
+        WHERE ID = #{id,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/> FROM test_user
+        WHERE ID = #{id,jdbcType=INTEGER}
+    </select>
+
+    <insert id="addUser">
+        INSERT INTO testDB.test_user(user_name, user_password)
+        VALUES (#{userName}, #{userPassword})
+    </insert>
+
+    <select id="findUserByNameAndPwd" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/> FROM test_user
+        WHERE user_name = #{userName,jdbcType=VARCHAR} AND user_password = #{userPassword,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/> FROM test_user
+    </select>
+</mapper>

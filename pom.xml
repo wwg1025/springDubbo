@@ -149,9 +149,19 @@
             </dependency>
 
             <dependency>
-                <groupId>org.codehaus.jackson</groupId>
-                <artifactId>jackson-mapper-asl</artifactId>
-                <version>1.9.11</version>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>2.5.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>2.5.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>2.5.1</version>
             </dependency>
 
             <dependency>
@@ -229,7 +239,7 @@
         </dependencies>
     </dependencyManagement>
 
-    <build>
+    <!--<build>
         <finalName>springDubbo</finalName>
         <plugins>
             <plugin>
@@ -250,6 +260,29 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>-->
+
+    <!-- build 标签 -->
+    <build>
+        <!-- plugins 标签 -->
+        <plugins>
+            <!-- maven-war-plugin 插件配置 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.2</version> <!-- 根据需要使用的版本号 -->
+                <configuration>
+                    <!-- 可选的配置 -->
+                </configuration>
+            </plugin>
+            <!-- 其他可能的插件 -->
         </plugins>
     </build>
 
