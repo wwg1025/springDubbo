@@ -12,6 +12,7 @@
         <module>springTest_one</module>
         <module>dubbo-api</module>
         <module>dubbo-provider</module>
+        <module>dubbo-consumer</module>
     </modules>
 
     <packaging>pom</packaging><!-- 这里添加，注意不是jar或war -->
@@ -229,6 +230,18 @@
                 <groupId>org.apache.curator</groupId>
                 <artifactId>curator-recipes</artifactId>
                 <version>2.7.1</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.zookeeper</groupId>
+                        <artifactId>zookeeper</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>3.4.10</version>
             </dependency>
 
             <!--spring2.X集成redis所需common-pool2-->
@@ -237,6 +250,26 @@
                 <artifactId>commons-pool2</artifactId>
                 <version>${commons.pool2.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.32</version> <!-- 请替换为你想要使用的版本 -->
+            </dependency>
+            <!-- 其他依赖 -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>1.7.32</version> <!-- 根据需要更改版本 -->
+                <exclusions>
+                    <!-- 可能需要排除其他冲突的依赖 -->
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
 
         </dependencies>
     </dependencyManagement>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--定义了消费方应用信息，用于计算依赖关系。在dubbo-admin会显示这个名字，方便识别-->
+    <dubbo:application name="springDubbo-consumer" owner="dubbo" organization="dubbox"/>
+
+    <!--向zookeeper订阅provider的地址，由zookeeper定时推送-->
+    <dubbo:registry protocol="zookeeper" address="114.55.52.92:2181,114.55.52.92:2182,114.55.52.92:2183"/>
+
+    <!--生成远程服务代理，可以像使用本地bean一样使用service-->
+    <!--使用dubbo协议调用定义好的api接口-->
+    <dubbo:reference id="demoService" interface="com.wen.study.dubbo.DemoService"/>
+    <dubbo:reference id="userService" interface="com.wen.study.dubbo.UserService"/>
+
+</beans>

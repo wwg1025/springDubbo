@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dubbo-provider</artifactId>
+    <artifactId>dubbo-consumer</artifactId>
 
     <dependencies>
         <!--api依赖-->
@@ -75,4 +75,5 @@
             </exclusions>
         </dependency>
     </dependencies>
+
 </project>

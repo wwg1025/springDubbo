@@ -17,8 +17,8 @@
     <dubbo:protocol name="dubbo" port="20880"/>
 
     <!--声明需要暴露的服务接口-->
-    <dubbo:service interface="com.wen.study.dubbo.service.impl.DemoServiceImpl" ref="demoService" protocol="dubbo"/>
-    <dubbo:service interface="com.wen.study.dubbo.service.impl.UserServiceImpl" ref="userService" protocol="dubbo"/>
+    <dubbo:service interface="com.wen.study.dubbo.DemoService" ref="demoService" protocol="dubbo"/>
+    <dubbo:service interface="com.wen.study.dubbo.UserService" ref="userService" protocol="dubbo"/>
 
     <!--具体实现接口的bean-->
     <bean id="demoService" class="com.wen.study.dubbo.service.impl.DemoServiceImpl"/>
